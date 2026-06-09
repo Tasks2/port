@@ -8,14 +8,25 @@ export default function ContactPage() {
         frontend, fintech, business analysis or data-related roles? I’d love to connect.
       </p>
 
+     
       <section style={styles.section}>
+        <h2>What I’m Open To</h2>
+        <ul>
+          <li>Frontend & product-focused roles</li>
+          <li>Fintech & data-driven platforms</li>
+          <li>Graduate / junior software engineering opportunities</li>
+          <li>Internships and contract projects</li>
+        </ul>
+      </section>
+
+       <section style={styles.section}>
         <h2>Get in Touch</h2>
         <ul style={styles.list}>
           <li>
             📧 Email:{" "}
             <a href="mailto:amywanjala@gmail.com">amywanjala@gmail.com</a>
           </li>
-          <li>
+          {/* <li>
             💼 LinkedIn:{" "}
             <a
               href="https://www.linkedin.com/in/yourprofile"
@@ -24,7 +35,7 @@ export default function ContactPage() {
             >
               linkedin.com/in/yourprofile
             </a>
-          </li>
+          </li> */}
           <li>
             🧑‍💻 GitHub:{" "}
             <a
@@ -38,15 +49,6 @@ export default function ContactPage() {
         </ul>
       </section>
 
-      <section style={styles.section}>
-        <h2>What I’m Open To</h2>
-        <ul>
-          <li>Frontend & product-focused roles</li>
-          <li>Fintech & data-driven platforms</li>
-          <li>Graduate / junior software engineering opportunities</li>
-          <li>Internships and contract projects</li>
-        </ul>
-      </section>
     </main>
   );
 }

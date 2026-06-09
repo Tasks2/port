@@ -1,30 +1,3 @@
-// import { projects } from "@/data/projects";
-// import ProjectCard from "@/components/projects/ProjectCard";
-
-// export default function ProjectsPage() {
-//   return (
-//     <main>
-//       <h1 style={{ marginBottom: "0.5rem" }}>Projects</h1>
-//       <p style={{ color: "#555", marginBottom: "2rem" }}>
-//         A collection of fintech, data, and product-focused projects I’ve worked on.
-//       </p>
-
-//       <div style={styles.grid}>
-//         {projects.map((project) => (
-//           <ProjectCard key={project.slug} project={project} />
-//         ))}
-//       </div>
-//     </main>
-//   );
-// }
-
-// const styles = {
-//   grid: {
-//     display: "grid",
-//     gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-//     gap: "1.5rem",
-//   },
-// };
 "use client";
 
 import { motion } from "framer-motion";
