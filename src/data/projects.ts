@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: "Attendance & Leave Management System",
     shortDescription:
       "Enterprise-style web system with dashboards, approvals, and role-based workflows.",
-    tags: ["Enterprise", "Dashboards", "Frontend"],
+    tags: ["Enterprise", "Dashboards", "Fullstack", "React", "Next.js"],
     tech: ["React", "Next.js"],
     featured: true,
   },
