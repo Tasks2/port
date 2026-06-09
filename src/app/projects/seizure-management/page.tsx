@@ -18,33 +18,44 @@ export default function SeizureManagementPage() {
       <section style={styles.section}>
         <h2>Problem</h2>
         <p>
-          Patients often struggle to consistently track medication, medical
-          appointments, and seizure events, which leads to incomplete reporting
-          during doctor visits.
+          Patients often struggle to consistently track medication schedules, 
+          seizure events, and medical appointments. This can lead to incomplete 
+          medical histories and reduced visibility into treatment progress.
+.
         </p>
       </section>
 
       <section style={styles.section}>
         <h2>Solution</h2>
         <p>
-          I built a product-focused web app that allows users to log medication,
-          track appointments, and generate structured medical reports for
-          consultations.
+          I developed a healthcare management application that enables users to 
+          record seizure events, manage medication schedules, track appointments, 
+          and generate structured reports for healthcare consultations.
         </p>
       </section>
 
       <TechStack tech={project.tech} />
 
       <section style={styles.section}>
-        <h2>Product & Fintech Relevance</h2>
+        <h2>Engineering Highlights</h2>
+        
+          <ul>
+            <li>Complex form management and validation</li>
+            <li>Structured health record tracking</li>
+            <li>Report generation workflows</li>
+            <li>Scalable component architecture</li>
+            <li>User-focused dashboard design</li>
+            <li>Database-ready application architecture</li>
+          </ul>
+        
+      </section>
+      <section style={styles.section}>
+        <h2>Key Skills Demonstrated</h2>
         <p>
-          While health-focused, this project demonstrates strong product
-          engineering skills relevant to fintech: building dashboards,
-          handling sensitive user data, structuring complex forms, and
-          presenting actionable information clearly.
+          This project allowed me to showcase my abilities in fullstack development, 
+          user experience design, and healthcare data management.
         </p>
       </section>
-
       <section style={styles.section}>
         <h2>Future Improvements</h2>
         <p>

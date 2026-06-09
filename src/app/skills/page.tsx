@@ -1,10 +1,11 @@
 export default function SkillsPage() {
   return (
     <main style={styles.container}>
-      <h1>Skills</h1>
+      <h1>Software Engineering Skills</h1>
       <p style={styles.intro}>
-        A practical skill set focused on building modern, data-driven web
-        applications and frontend interfaces for real-world business systems.
+        I build full-stack applications that solve real-world problems through thoughtful system design, 
+        scalable architectures, and user-focused experiences. My experience spans healthcare platforms, 
+        business management systems, workflow automation tools, and data-driven applications.
       </p>
 
       <section style={styles.section}>
@@ -19,46 +20,59 @@ export default function SkillsPage() {
       </section>
 
       <section style={styles.section}>
-        <h2>Data & Machine Learning</h2>
+        <h2>Backend Development</h2>
         <ul>
-          <li>Python for data analysis and ML workflows</li>
+          <li>Node.js and Express</li>
+          <li>REST API design and integration</li>
+          <li>Authentication and authorization</li>
+          <li>Business logic implementation</li>
+          <li>Server-side application development</li>
+          <li>API testing and debugging</li>
+        </ul>
+      </section>
+
+      <section style={styles.section}>
+        <h2>Database and Data Management</h2>
+        <ul>
+          <li>SQL fundamentals</li>
+          <li>MySQL, PostgreSQL</li>
+          <li>Database schema design and optimization</li>
+          <li>Data modeling and relationships</li>
+          <li>CRUD operations and data integration</li>
+        </ul>
+      </section>
+
+      <section style={styles.section}>
+        <h2>Software Engineering Practices</h2>
+        <ul>
+          <li>System design fundamentals</li>
+          <li>Component reusability and maintainability</li>
+          <li>Git and GitHub for version control</li>
+          <li>Agile and iterative development </li>
+          <li>Debugging and troubleshooting</li>
+          <li>Performance optimization and scalability considerations</li>
+        </ul>
+      </section>
+
+      <section style={styles.section}>
+        <h2>Data and Analytics</h2>
+        <ul>
+          <li>Python,Pandas</li>
           <li>Exploratory data analysis (EDA)</li>
-          <li>Supervised ML models (classification, prediction)</li>
-          <li>Model evaluation and basic feature engineering</li>
-          <li>Building ML-powered prototypes for business use cases</li>
+          <li>Machine learning fundamentals</li>
+          <li>Data visualization and reporting</li>
         </ul>
       </section>
 
       <section style={styles.section}>
-        <h2>Fintech & Product-Oriented Skills</h2>
+        <h2>Professional Skills</h2>
         <ul>
-          <li>Designing dashboards and internal tools</li>
-          <li>Understanding user workflows and business requirements</li>
-          <li>Building CRUD-based enterprise-style systems</li>
-          <li>Translating data outputs into usable frontend features</li>
-          <li>Awareness of data privacy and user-centric design</li>
-        </ul>
-      </section>
-
-      <section style={styles.section}>
-        <h2>Tools & Workflow</h2>
-        <ul>
-          <li>Git & GitHub for version control</li>
-          <li>REST APIs & frontend-backend integration</li>
-          <li>Figma for basic UI/UX collaboration</li>
-          <li>Agile-style development and iterative prototyping</li>
-          <li>Comfortable working with incomplete specs and evolving requirements</li>
-        </ul>
-      </section>
-
-      <section style={styles.section}>
-        <h2>Soft Skills</h2>
-        <ul>
-          <li>Strong problem-solving mindset</li>
-          <li>Ability to break down complex systems into manageable features</li>
+          <li>Problem-solving</li>
+          <li>Systems-thinking</li>
+          <li>Product-oriented mindset</li>
           <li>Clear technical communication</li>
-          <li>Fast learner, adaptable to new tools and stacks</li>
-          <li>Product-oriented thinking (building for users, not just code)</li>
+          <li>Rapid learning and adaptability</li>
+          <li>Translating business needs into technical solutions</li>
         </ul>
       </section>
     </main>

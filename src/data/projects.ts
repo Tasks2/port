@@ -8,40 +8,50 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    slug: "churn-analysis",
-    title: "Customer Churn Analysis",
-    shortDescription:
-      "Machine learning model to predict customer churn and support data-driven retention strategies in fintech platforms.",
-    tags: ["Fintech", "Machine Learning", "Data"],
-    tech: ["Python", "Pandas", "Scikit-learn"],
-    featured: true,
-  },
+
   {
     slug: "attendance-system",
     title: "Attendance & Leave Management System",
     shortDescription:
-      "Enterprise-style web system with dashboards, approvals, and role-based workflows.",
-    tags: ["Enterprise", "Dashboards", "Fullstack", "React", "Next.js"],
-    tech: ["React", "Next.js"],
+      "Full-stack workforce management platform featuring attendance tracking, leave requests, task assignment, reporting, and role-based access control.",
+    tags: ["Enterprise", "Dashboards", "Fullstack", "Workflow", "Reporting"],
+    tech: ["React", "Next.js", "Node.js", "Express","MySQL"],
     featured: true,
   },
   {
     slug: "seizure-management",
     title: "Seizure Management Web App",
     shortDescription:
-      "Product-focused React/Next.js app for tracking medication, appointments, and generating reports.",
-    tags: ["Product", "HealthTech", "Frontend", "Backend"],
+      "Healthcare management platform enabling seizure tracking, medication monitoring, appointment scheduling, and patient reporting.",
+    tags: ["Healthcare","Fullstack", "Patient Management", "Reporting", "Data Tracking"],
     tech: ["React", "Next.js", "SQL", "Supabase"],
     featured: true,
   },
+   {
+  slug: "impact-tracker",
+  title: "Impact Tracking Platform",
+  shortDescription:
+    "Data-driven platform for tracking activities, outcomes, and project progress through structured reporting, dashboards, and performance monitoring.",
+  tags: ["Fullstack","Analytics","Reporting","Dashboards","Product"],
+  tech: ["React","Next.js","Supabase","SQL"],
+  featured: true,
+},
   {
     slug: "malaria-prediction",
-    title: "Malaria Prediction (ML)",
+    title: "Malaria Risk Prediction Platform",
     shortDescription:
       "Machine learning model for disease prediction, demonstrating predictive analytics skills.",
-    tags: ["Machine Learning", "Data Science"],
-    tech: ["Python", "Scikit-learn"],
+    tags: ["Predictive Analytics","Healthcare","Machine Learning","Data Analysis"],
+   tech: [ "Python","Pandas","Scikit-learn","NumPy"]
+  },
+    {
+    slug: "churn-analysis",
+    title: "Customer Retention Prediction System",
+    shortDescription:
+      "Predictive analytics project leveraging machine learning to identify customer retention risks and support data-driven business decisions.",
+    tags: ["Predictive Analytics", "Machine Learning", "Data Engineering"],
+    tech: ["Python", "Pandas", "Scikit-learn", "Numpy"],
+    featured: true,
   },
   {
     slug: "ml-in-progress",

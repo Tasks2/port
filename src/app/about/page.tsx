@@ -13,23 +13,26 @@ export default function AboutPage() {
     >
       <motion.div variants={fadeInUp}>
         <div style={styles.label}>About</div>
-        <h1 style={styles.title}>Building at the Intersection of Frontend & Data</h1>
+        <h1 style={styles.title}>Building Software That Solves Real Problems</h1>
       </motion.div>
 
       <motion.section variants={fadeInUp} style={styles.section}>
         <p style={styles.intro}>
-          I'm a frontend developer who thrives on transforming complex data systems 
-          into intuitive, powerful web experiences. My background spans fintech platforms, 
-          machine learning applications, and enterprise tools where clean code meets 
-          real business impact.
+         I'm a software engineer passionate about building applications that transform 
+         complex processes into intuitive digital experiences.
+
         </p>
 
         <p style={styles.paragraph}>
-          What excites me most is the challenge of taking ML models, financial analytics, 
-          or intricate workflows and crafting interfaces that make them accessible and 
-          actionable. I believe the best software doesn't just work—it empowers users 
-          to make better decisions faster.
+         My work spans healthcare systems, business management platforms, workflow automation 
+         tools, and data-driven applications. I enjoy designing solutions that are not only 
+         technically sound but also genuinely useful to the people who rely on them every day. 
         </p>
+        <p style={styles.paragraph}>
+          Whether developing frontend interfaces, designing APIs, or structuring databases, 
+          I approach software development with a focus on reliability, scalability, 
+          and long-term maintainability.
+          </p>
       </motion.section>
 
       <motion.section variants={fadeInUp} style={styles.section}>
@@ -47,42 +50,39 @@ export default function AboutPage() {
           </div>
 
           <div style={styles.card}>
-            <div style={styles.icon}>🤖</div>
-            <h3 style={styles.cardTitle}>ML-Powered Interfaces</h3>
-            <p style={styles.cardText}>
-              Designing frontends for machine learning systems—predictive analytics, 
-              classification models, and decision-support tools. I bridge the gap 
-              between model outputs and user understanding.
-            </p>
-          </div>
-
-          <div style={styles.card}>
             <div style={styles.icon}>💼</div>
-            <h3 style={styles.cardTitle}>Fintech Solutions</h3>
+            <h3 style={styles.cardTitle}>Business Systems</h3>
             <p style={styles.cardText}>
-              Creating robust, user-friendly financial applications with a focus on 
-              data visualization, workflow automation, and seamless user experiences 
-              for enterprise-scale platforms.
+             Building software that supports operational workflows, reporting, 
+             inventory management, and enterprise processes.
             </p>
           </div>
 
           <div style={styles.card}>
-            <div style={styles.icon}>⚡</div>
-            <h3 style={styles.cardTitle}>Rapid Prototyping</h3>
+            <div style={styles.icon}>🏥</div>
+            <h3 style={styles.cardTitle}>Healthcare Applications</h3>
             <p style={styles.cardText}>
-              Leveraging modern tools and AI-assisted development to quickly validate 
-              ideas, build MVPs, and iterate on product concepts with React, Next.js, 
-              and TypeScript.
+              Developing tools that help users track, manage, 
+              and understand important health information.
+            </p>
+          </div>
+
+          <div style={styles.card}>
+            <div style={styles.icon}>💻</div>
+            <h3 style={styles.cardTitle}>Fullstack Development</h3>
+            <p style={styles.cardText}>
+              Designing complete solutions from user interfaces to 
+              backend services, APIs, and databases.
             </p>
           </div>
         </div>
       </motion.section>
 
       <motion.section variants={fadeInUp} style={styles.section}>
-        <h2 style={styles.sectionTitle}>Technical Approach</h2>
+        <h2 style={styles.sectionTitle}>Data & Reporting</h2>
         <p style={styles.paragraph}>
-          I prioritize clarity, maintainability, and user experience. My development 
-          philosophy centers on:
+          Creating dashboards and reporting tools that transform 
+          raw data into actionable insights.
         </p>
         <ul style={styles.list}>
           <li style={styles.listItem}>
@@ -103,16 +103,16 @@ export default function AboutPage() {
       <motion.section variants={fadeInUp} style={styles.section}>
         <h2 style={styles.sectionTitle}>Career Direction</h2>
         <p style={styles.paragraph}>
-          I'm currently seeking frontend, fintech, or data-focused roles where I can 
-          contribute to large-scale platforms that solve real business problems. I'm 
-          particularly interested in positions that combine my technical skills with 
-          opportunities to learn from experienced teams and grow into building 
-          production-grade systems.
+          I'm currently seeking software engineering opportunities where I can contribute to building 
+          reliable, scalable, and impactful applications.
+
+          I'm particularly interested in roles involving full-stack development, backend engineering, 
+          system design, workflow automation, and data-driven solutions. I enjoy working on products 
+          that solve meaningful problems and improve how people or organizations operate.
         </p>
         <p style={styles.paragraph}>
-          Whether it's a fintech startup, a data analytics company, or an enterprise 
-          developing internal tools, I'm looking for environments where craftsmanship 
-          matters and where I can make a meaningful impact.
+          Whether in healthcare, agriculture, enterprise software, logistics, or emerging technology, 
+          I'm motivated by opportunities to build software that creates measurable value.
         </p>
       </motion.section>
 

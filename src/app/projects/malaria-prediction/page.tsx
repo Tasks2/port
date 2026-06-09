@@ -18,29 +18,51 @@ export default function MalariaPredictionPage() {
       <section style={styles.section}>
         <h2>Problem</h2>
         <p>
-          Accurate disease prediction is critical for early intervention and
-          resource allocation, but requires robust data preprocessing and model
-          evaluation.
+          Early identification of disease risk can support faster intervention, 
+          better resource planning, and more informed decision-making. Developing
+          accurate predictive systems requires effective data preparation, feature 
+          selection, and model evaluation.
         </p>
       </section>
 
       <section style={styles.section}>
         <h2>Solution</h2>
         <p>
-          I developed a machine learning model to predict malaria cases using
-          structured datasets, applying feature engineering, training, and
-          evaluation techniques.
+          I developed a predictive analytics model using structured healthcare data 
+          to estimate malaria risk. The project involved data preprocessing, feature 
+          engineering, model training, and performance evaluation to generate reliable 
+          predictions.
         </p>
       </section>
 
       <TechStack tech={project.tech} />
 
       <section style={styles.section}>
-        <h2>Fintech Relevance</h2>
+        <h2>Engineering Highlights</h2>
+        <ul>
+          <li>Data preprocessing pipelines</li>
+          <li>Feature engineering</li>
+          <li>Model training and evaluation</li>
+          <li>Predictive analytics workflows</li>
+          <li>Data quality management</li>
+          <li>Analytical problem-solving</li>
+        </ul>
+      </section>
+
+      <section style={styles.section}>
+        <h2>Key Skills Demonstrated</h2>
         <p>
-          The predictive modeling techniques used here are directly applicable
-          to fintech use cases such as fraud detection, credit risk scoring,
-          and anomaly detection.
+          This project allowed me to demonstrate my skills in data science, machine learning fundamentals,
+          and predictive analytics, data visualization, as well as my ability to work with structured healthcare data.
+        </p>
+      </section>
+
+      <section style={styles.section}>
+        <h2>Future Improvements</h2>
+        <p>
+          Future improvements include exploring additional machine learning algorithms,
+          incorporating real-time data feeds, expanded dataset coverage, cloud deployment
+          and API integration.
         </p>
       </section>
     </main>
@@ -53,3 +75,5 @@ const styles = {
     maxWidth: "800px",
   },
 };
+
+ 

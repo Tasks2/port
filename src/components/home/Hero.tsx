@@ -16,32 +16,34 @@ export default function Hero() {
       </div>
 
       <h1 style={styles.title}>
-        Software Engineer | Backend Developer | Junior SOC Analyst
+        Software Engineer | Fullstack Developer 
         <br />
-        <span style={styles.highlight}>Data-Driven</span> Fintech Solutions
+        {/* <span style={styles.highlight}>Data-Driven</span>  */}
+        
       </h1>
+      <h2>Building Software Solutions for Real-World Problems</h2>
 
       <p style={styles.subtitle}>
-        I transform complex business problems into elegant web experiences. 
-        Combining frontend engineering with machine learning and data analytics, 
-        I build decision-support systems, internal tools, and predictive platforms 
-        that turn insights into action.
+        I design and develop full-stack applications that streamline workflows, improve decision-making, 
+        and solve operational challenges. From healthcare platforms and business management systems to 
+        data-driven applications, I focus on creating reliable software that delivers meaningful impact. 
+        
       </p>
 
       <div style={styles.stats}>
         <div style={styles.statItem}>
           <div style={styles.statValue}>5+</div>
-          <div style={styles.statLabel}>Projects Shipped</div>
+          <div style={styles.statLabel}>Applications Built</div>
         </div>
         <div style={styles.divider}></div>
         <div style={styles.statItem}>
           <div style={styles.statValue}>3</div>
-          <div style={styles.statLabel}>ML Models Deployed</div>
+          <div style={styles.statLabel}>Systems Designed</div>
         </div>
         <div style={styles.divider}></div>
         <div style={styles.statItem}>
           <div style={styles.statValue}>React</div>
-          <div style={styles.statLabel}>Primary Stack</div>
+          <div style={styles.statLabel}>Full-stack focus</div>
         </div>
       </div>
 

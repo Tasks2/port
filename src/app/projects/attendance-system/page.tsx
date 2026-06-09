@@ -18,31 +18,52 @@ export default function AttendanceSystemPage() {
       <section style={styles.section}>
         <h2>Problem</h2>
         <p>
-          Organizations need reliable internal systems to manage attendance,
-          leave requests, and approvals. Manual processes are error-prone and
-          slow, especially in fast-moving fintech environments.
+          Organizations often rely on manual processes to manage attendance records, 
+          leave requests, approvals, and workforce reporting. These processes can become 
+          inefficient, difficult to track, and prone to errors as teams grow.
         </p>
       </section>
 
       <section style={styles.section}>
         <h2>Solution</h2>
         <p>
-          I built a web-based attendance and leave management system with
-          role-based access, approval workflows, and admin dashboards to
-          streamline internal operations.
+          I developed a full-stack attendance and leave management platform that streamlines 
+          workforce operations through attendance tracking, leave request workflows, approval 
+          processes, and administrative dashboards.
         </p>
       </section>
 
       <TechStack tech={project.tech} />
 
       <section style={styles.section}>
-        <h2>Fintech Relevance</h2>
+        <h2>Engineering Highlights</h2>
+      
+          <ul>
+            <li>Role-based access control implementation</li>
+            <li>Dynamic reporting and dashboard design</li>
+            <li>Scalable component architecture</li>
+            <li>Structured data management</li>
+            <li>Workflow automation for approvals</li>
+            <li>Business process modeling</li>
+          </ul>
+        
+      </section>
+      <section style={styles.section}>
+        <h2>Key Skills Demonstrated</h2>
         <p>
-          This project reflects the type of internal tools used in fintech
-          companies for HR, compliance, and operations — emphasizing structured
-          workflows, dashboards, and audit-friendly processes.
+          This project allowed me to demonstrate my skills in full-stack development,
+          user experience design, dashboard development, database planning and data modelling
+           and building software that supports operational workflows.
         </p>
       </section>
+
+      <section style={styles.section}>  
+        <h2>Future Improvements</h2>
+        <p>
+          Future enhancements could include mobile app development, automated notifications, 
+          advanced reporting features, and support for additional workforce management functions. 
+        </p>
+        </section>
     </main>
   );
 }
