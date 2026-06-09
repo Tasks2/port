@@ -3,13 +3,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Amy Wanjala | Frontend Developer • Fintech • Data",
-  description: "Frontend developer specializing in data-driven fintech solutions and machine learning applications. Building elegant interfaces for complex business problems.",
-  keywords: ["Frontend Developer", "Fintech", "Data Science", "Machine Learning", "React", "Next.js"],
+  title: "Amy Wanjala | Software Engineer • Junior Security Analyst",
+  description: "Software engineer specializing in data-driven fintech solutions and machine learning applications. Building elegant interfaces for complex business problems.",
+  keywords: ["Software Engineer", "Fintech", "Data Science", "Machine Learning", "React", "Next.js"],
   authors: [{ name: "Amy Wanjala" }],
   openGraph: {
-    title: "Amy Wanjala | Frontend Developer • Fintech • Data",
-    description: "Frontend developer specializing in data-driven fintech solutions and machine learning applications.",
+    title: "Amy Wanjala | Software Engineer ",
+    description: "Software engineer specializing in data-driven fintech solutions and machine learning applications.",
     type: "website",
   },
 };

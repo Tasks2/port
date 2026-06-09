@@ -1,36 +1,3 @@
-
-// "use client";
-
-// import { motion } from "framer-motion";
-// import { fadeInUp } from "@/lib/animations";
-
-// export default function Hero() {
-//   return (
-//     <motion.section
-//       initial="hidden"
-//       animate="visible"
-//       variants={fadeInUp}
-//       style={{ marginBottom: "4rem" }}
-//     >
-//       <h1>Frontend Developer with a Data & Fintech Focus</h1>
-//       <p>
-//         I build data-driven web applications and ML-powered tools for real-world
-//         business problems. I have passion for problem solving and solving business 
-//         problems with tech. 
-//       </p>
-//     </motion.section>
-//   );
-// }
-
-// const styles = {
-//   hero: {
-//     padding: "5rem 0 4rem",
-//   },
-//   highlight: {
-//     color: "var(--accent)",
-//   },
-// };
-
 "use client";
 
 import { motion } from "framer-motion";

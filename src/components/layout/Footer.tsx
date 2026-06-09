@@ -1,20 +1,3 @@
-// export default function Footer() {
-//   return (
-//     <footer style={styles.footer}>
-//       <p>© {new Date().getFullYear()} Amy Wanjala. Built with Next.js.</p>
-//     </footer>
-//   );
-// }
-
-// const styles = {
-//   footer: {
-//     textAlign: "center" as const,
-//     padding: "2rem",
-//     borderTop: "1px solid #eee",
-//     marginTop: "3rem",
-//     color: "#555",
-//   },
-// };
 
 import Link from "next/link";
 
@@ -29,7 +12,7 @@ export default function Footer() {
             <div style={styles.logoInitial}>AW</div>
             <div>
               <h3 style={styles.brandName}>Amy Wanjala</h3>
-              <p style={styles.tagline}>Frontend Developer • Fintech • Data</p>
+              <p style={styles.tagline}>Software Engineer • Junior Security Analyst</p>
             </div>
           </div>
 
@@ -45,7 +28,7 @@ export default function Footer() {
             <div style={styles.linkGroup}>
               <h4 style={styles.linkGroupTitle}>Connect</h4>
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/Tasks2" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={styles.link}
@@ -53,7 +36,7 @@ export default function Footer() {
                 GitHub
               </a>
               <a 
-                href="https://linkedin.com/in/yourusername" 
+                href="#" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={styles.link}
@@ -61,7 +44,7 @@ export default function Footer() {
                 LinkedIn
               </a>
               <a 
-                href="mailto:your.email@example.com"
+                href="mailto:amywanjala@gmail.com"
                 style={styles.link}
               >
                 Email

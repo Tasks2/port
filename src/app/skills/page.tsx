@@ -8,7 +8,7 @@ export default function SkillsPage() {
       </p>
 
       <section style={styles.section}>
-        <h2>Frontend Development</h2>
+        <h2>Fullstack Development</h2>
         <ul>
           <li>React, Next.js (App Router)</li>
           <li>TypeScript & JavaScript (ES6+)</li>
