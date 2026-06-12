@@ -54,6 +54,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "clinic-appointment",
+    title: "Clinic Appointment System(In Progress)",
+    shortDescription:
+      "Web application for managing clinic appointments, patient records, and staff schedules.",
+    tags: ["Healthcare", "Fullstack", "Patient Management"],
+    tech: ["React", "Next.js", "Node.js", "Express", "MySQL"],
+    featured: true,
+  },
+  {
     slug: "ml-in-progress",
     title: "ML Project (In Progress)",
     shortDescription:
