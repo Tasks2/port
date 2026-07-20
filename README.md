@@ -1,29 +1,74 @@
 # Personal Portfolio
 
-A modern portfolio website built with **Next.js**, **React**, and **TypeScript** to showcase software engineering projects, technical skills, and practical experience building full-stack applications.
+A modern, responsive developer portfolio built with **Next.js, React, and TypeScript** to showcase software engineering projects, technical skills, and experience designing and developing full-stack applications.
 
 ## Overview
 
-This portfolio highlights projects across healthcare, enterprise software, workflow automation, analytics, and predictive systems. The focus is on demonstrating problem-solving, software architecture, and user-centered development rather than a single industry specialization.
+This portfolio serves as a central hub for my software engineering work, highlighting projects across **healthcare technology, business systems, workflow automation, data analytics, and predictive applications**.
+
+The projects featured demonstrate practical experience with:
+
+- Designing user-focused applications
+- Building scalable frontend architectures
+- Developing backend services and APIs
+- Working with databases and data-driven systems
+- Translating real-world problems into software solutions
+
+My focus is on building reliable, maintainable software while continuously improving my skills in backend development, system design, and modern web technologies.
 
 ## Features
 
-* Responsive design
-* Project showcase with dedicated detail pages
-* Skills and technology overview
-* About and contact sections
-* Modern component-based architecture
-* Built with the Next.js App Router
+- Responsive and mobile-friendly design
+- Project showcase with detailed case studies
+- Technology and skills overview
+- About and contact sections
+- Modern component-based architecture
+- Built using the Next.js App Router
+- Smooth UI interactions and animations
 
 ## Tech Stack
 
-* Next.js
-* React
-* TypeScript
-* CSS
-* Framer Motion
+### Frontend
+
+- Next.js
+- React
+- TypeScript
+- CSS
+- Framer Motion
+
+### Development Tools
+
+- Git & GitHub
+- npm
+- VS Code
+
+## Project Focus
+
+The portfolio showcases projects across several areas:
+
+### Full-Stack Applications
+
+Building complete applications that combine modern frontend interfaces, backend services, databases, authentication, and business logic.
+
+### Healthcare Technology
+
+Developing solutions focused on improving healthcare workflows, patient tracking, medication management, and information accessibility.
+
+### Business & Workflow Systems
+
+Creating applications that streamline operations, improve process visibility, and support better decision-making.
+
+### Data Analytics & Predictive Systems
+
+Exploring data-driven solutions through analytics, visualization, and predictive modeling.
 
 ## Getting Started
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
 
 Install dependencies:
 
@@ -37,26 +82,29 @@ Run the development server:
 npm run dev
 ```
 
-Open `http://localhost:3000` in your browser.
+Open your browser and visit:
 
-## Project Focus
+```
+http://localhost:3000
+```
 
-The portfolio includes work involving:
+## Project Structure
 
-* Full-stack web applications
-* Healthcare platforms
-* Business management systems
-* Workflow automation
-* Reporting dashboards
-* Data analytics and predictive models
+```
+src/
+├── app/          # Next.js App Router pages
+├── components/   # Reusable UI components
+├── assets/       # Images and static resources
+└── styles/       # Global styles and configurations
+```
 
-## Future Enhancements
+## Future Improvements
 
-* Additional project case studies
-* Interactive demonstrations
-* Architecture diagrams
-* Expanded technical documentation
+- Add detailed project case studies
+- Include architecture diagrams and technical decisions
+- Add interactive project demonstrations
+- Expand technical documentation for individual projects
 
 ---
 
-Built to showcase practical software engineering skills and real-world problem solving.
+Built with **Next.js, React, and TypeScript** to showcase practical software engineering skills, problem-solving ability, and continuous learning.

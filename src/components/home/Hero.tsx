@@ -12,49 +12,42 @@ export default function Hero() {
       style={styles.hero}
     >
       <div style={styles.badge}>
-        <span style={styles.badgeIcon}>●</span> Available for opportunities
+        <span style={styles.badgeDot} /> Available for graduate opportunities
       </div>
 
       <h1 style={styles.title}>
-        Software Engineer | Fullstack Developer 
-        <br />
-        {/* <span style={styles.highlight}>Data-Driven</span>  */}
-        
+        Software engineer building <em style={styles.italic}>useful</em>,
+        <br /> dependable products.
       </h1>
-      <h2>Building Software Solutions for Real-World Problems</h2>
 
       <p style={styles.subtitle}>
-        I design and develop full-stack applications that streamline workflows, improve decision-making, 
-        and solve operational challenges. From healthcare platforms and business management systems to 
-        data-driven applications, I focus on creating reliable software that delivers meaningful impact. 
-        
+        I&rsquo;m Amy, a software engineer who ships full-stack applications
+        for healthcare, operations, and analytics. I care about clean architecture,
+        readable code, and interfaces that stay out of the user&rsquo;s way.
       </p>
 
       <div style={styles.stats}>
         <div style={styles.statItem}>
           <div style={styles.statValue}>5+</div>
-          <div style={styles.statLabel}>Applications Built</div>
+          <div style={styles.statLabel}>Apps shipped</div>
         </div>
-        <div style={styles.divider}></div>
+        <div style={styles.divider} />
         <div style={styles.statItem}>
           <div style={styles.statValue}>3</div>
-          <div style={styles.statLabel}>Systems Designed</div>
+          <div style={styles.statLabel}>Systems designed</div>
         </div>
-        <div style={styles.divider}></div>
+        <div style={styles.divider} />
         <div style={styles.statItem}>
-          <div style={styles.statValue}>React</div>
-          <div style={styles.statLabel}>Full-stack focus</div>
+          <div style={styles.statValue}>Full-stack</div>
+          <div style={styles.statLabel}>React · Node · SQL</div>
         </div>
       </div>
 
       <div style={styles.cta}>
         <a href="/projects" style={styles.primaryButton}>
-          View Projects
-          <span style={styles.arrow}>→</span>
+          View projects <span style={styles.arrow}>→</span>
         </a>
-        <a href="/contact" style={styles.secondaryButton}>
-          Get In Touch
-        </a>
+        <a href="/contact" style={styles.secondaryButton}>Get in touch</a>
       </div>
     </motion.section>
   );
@@ -62,47 +55,49 @@ export default function Hero() {
 
 const styles = {
   hero: {
-    paddingTop: "5rem",
-    paddingBottom: "4rem",
-    maxWidth: "900px",
-  },
+    paddingTop: "6rem",
+    paddingBottom: "5rem",
+    maxWidth: "920px",
+  } as React.CSSProperties,
   badge: {
     display: "inline-flex",
     alignItems: "center",
     gap: "0.5rem",
-    padding: "0.5rem 1rem",
-    background: "var(--accent-soft)",
-    color: "var(--accent-dark)",
+    padding: "0.4rem 0.9rem",
+    background: "var(--bg-card)",
+    color: "var(--text-primary)",
     borderRadius: "999px",
-    fontSize: "0.875rem",
+    fontSize: "0.8rem",
     fontWeight: 500,
-    fontFamily: "var(--font-display)",
-    marginBottom: "2rem",
-    border: "1px solid var(--accent-primary)",
+    marginBottom: "2.25rem",
+    border: "1px solid var(--border-light)",
+    boxShadow: "var(--shadow-sm)",
   } as React.CSSProperties,
-  badgeIcon: {
-    color: "var(--success)",
-    fontSize: "0.625rem",
-  },
+  badgeDot: {
+    width: 7,
+    height: 7,
+    borderRadius: "50%",
+    background: "var(--success)",
+    boxShadow: "0 0 0 3px rgba(74, 124, 89, 0.15)",
+  } as React.CSSProperties,
   title: {
-    fontSize: "clamp(2.5rem, 6vw, 4rem)",
-    fontWeight: 700,
-    lineHeight: 1.1,
+    fontFamily: "var(--font-display)",
+    fontSize: "clamp(2.75rem, 6.5vw, 4.75rem)",
+    fontWeight: 400,
+    lineHeight: 1.05,
+    letterSpacing: "-0.025em",
     marginBottom: "1.5rem",
     color: "var(--text-primary)",
-    fontFamily: "var(--font-display)",
   } as React.CSSProperties,
-  highlight: {
-    background: "linear-gradient(135deg, var(--accent-primary) 0%, #0052cc 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
+  italic: {
+    fontStyle: "italic",
+    color: "var(--accent-primary)",
   } as React.CSSProperties,
   subtitle: {
-    fontSize: "1.15rem",
-    lineHeight: 1.7,
+    fontSize: "1.1rem",
+    lineHeight: 1.65,
     color: "var(--text-secondary)",
-    maxWidth: "700px",
+    maxWidth: "640px",
     marginBottom: "3rem",
   } as React.CSSProperties,
   stats: {
@@ -111,6 +106,8 @@ const styles = {
     alignItems: "center",
     marginBottom: "3rem",
     flexWrap: "wrap" as const,
+    paddingTop: "1.75rem",
+    borderTop: "1px solid var(--border-subtle)",
   },
   statItem: {
     display: "flex",
@@ -118,59 +115,56 @@ const styles = {
     gap: "0.25rem",
   },
   statValue: {
-    fontSize: "1.75rem",
-    fontWeight: 700,
-    color: "var(--accent-primary)",
     fontFamily: "var(--font-display)",
+    fontSize: "2rem",
+    fontWeight: 400,
+    color: "var(--text-primary)",
+    letterSpacing: "-0.02em",
+    lineHeight: 1,
   },
   statLabel: {
-    fontSize: "0.875rem",
+    fontSize: "0.75rem",
     color: "var(--text-tertiary)",
-    fontFamily: "var(--font-display)",
     textTransform: "uppercase" as const,
-    letterSpacing: "0.05em",
+    letterSpacing: "0.1em",
+    fontWeight: 500,
   },
   divider: {
     width: "1px",
-    height: "40px",
+    height: "36px",
     background: "var(--border-light)",
   },
   cta: {
     display: "flex",
-    gap: "1rem",
+    gap: "0.75rem",
     flexWrap: "wrap" as const,
   },
   primaryButton: {
     display: "inline-flex",
     alignItems: "center",
     gap: "0.5rem",
-    padding: "1rem 2rem",
-    background: "var(--accent-primary)",
-    color: "white",
+    padding: "0.9rem 1.6rem",
+    background: "var(--bg-inverse)",
+    color: "#f7f4ee",
     borderRadius: "var(--radius-md)",
-    fontWeight: 600,
-    fontFamily: "var(--font-display)",
-    fontSize: "1rem",
+    fontWeight: 500,
+    fontSize: "0.95rem",
     textDecoration: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-    boxShadow: "var(--shadow-md)",
+    transition: "transform 0.2s ease, background 0.2s ease",
+    border: "1px solid var(--bg-inverse)",
   } as React.CSSProperties,
-  arrow: {
-    transition: "transform 0.3s ease",
-    display: "inline-block",
-  },
+  arrow: { display: "inline-block", transition: "transform 0.2s ease" } as React.CSSProperties,
   secondaryButton: {
     display: "inline-flex",
     alignItems: "center",
-    padding: "1rem 2rem",
+    padding: "0.9rem 1.6rem",
     background: "transparent",
     color: "var(--text-primary)",
-    border: "2px solid var(--border-light)",
+    border: "1px solid var(--border-light)",
     borderRadius: "var(--radius-md)",
-    fontWeight: 600,
-    fontFamily: "var(--font-display)",
-    fontSize: "1rem",
+    fontWeight: 500,
+    fontSize: "0.95rem",
     textDecoration: "none",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    transition: "background 0.2s ease, border-color 0.2s ease",
   } as React.CSSProperties,
 };

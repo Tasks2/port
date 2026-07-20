@@ -9,27 +9,17 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.div
       variants={fadeInUp}
-      whileHover={{ 
-        y: -8, 
-        scale: 1.01,
-      }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 300,
-        damping: 20,
-      }}
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
       style={styles.card}
     >
-      {/* Gradient overlay on hover */}
-      <div style={styles.cardGlow}></div>
-      
+      <span style={styles.accentBar} aria-hidden />
+
       <div style={styles.cardHeader}>
         <h3 style={styles.title}>{project.title}</h3>
         <div style={styles.tags}>
-          {project.tags.map((tag) => (
-            <span key={tag} style={styles.tag}>
-              {tag}
-            </span>
+          {project.tags.slice(0, 3).map((tag) => (
+            <span key={tag} style={styles.tag}>{tag}</span>
           ))}
         </div>
       </div>
@@ -38,16 +28,13 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div style={styles.footer}>
         <div style={styles.techStack}>
-          {project.tech.slice(0, 3).map((tech) => (
-            <code key={tech} style={styles.tech}>
-              {tech}
-            </code>
+          {project.tech.slice(0, 4).map((tech) => (
+            <code key={tech} style={styles.tech}>{tech}</code>
           ))}
         </div>
 
         <Link href={`/projects/${project.slug}`} style={styles.link}>
-          View Details
-          <span style={styles.arrow}>→</span>
+          Case study <span style={styles.arrow}>→</span>
         </Link>
       </div>
     </motion.div>
@@ -57,57 +44,53 @@ export default function ProjectCard({ project }: { project: Project }) {
 const styles = {
   card: {
     position: "relative" as const,
-    padding: "2rem",
+    padding: "1.75rem",
     background: "var(--bg-card)",
     borderRadius: "var(--radius-lg)",
     border: "1px solid var(--border-subtle)",
     boxShadow: "var(--shadow-sm)",
-    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    transition: "box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease",
     overflow: "hidden",
     display: "flex",
     flexDirection: "column" as const,
     gap: "1.25rem",
     height: "100%",
   },
-  cardGlow: {
+  accentBar: {
     position: "absolute" as const,
     top: 0,
     left: 0,
-    right: 0,
-    height: "3px",
-    background: "linear-gradient(90deg, var(--accent-primary), #0052cc)",
-    transform: "scaleX(0)",
-    transformOrigin: "left",
-    transition: "transform 0.3s ease",
-  },
+    width: "3px",
+    height: "100%",
+    background: "var(--accent-primary)",
+    opacity: 0.9,
+  } as React.CSSProperties,
   cardHeader: {
     display: "flex",
     flexDirection: "column" as const,
     gap: "0.75rem",
   },
   title: {
-    fontSize: "1.35rem",
-    fontWeight: 600,
-    color: "var(--text-primary)",
     fontFamily: "var(--font-display)",
-    lineHeight: 1.3,
-  },
+    fontSize: "1.6rem",
+    fontWeight: 400,
+    color: "var(--text-primary)",
+    lineHeight: 1.15,
+    letterSpacing: "-0.015em",
+  } as React.CSSProperties,
   tags: {
     display: "flex",
-    gap: "0.5rem",
+    gap: "0.4rem",
     flexWrap: "wrap" as const,
   },
   tag: {
-    padding: "0.25rem 0.75rem",
-    fontSize: "0.75rem",
+    padding: "0.2rem 0.6rem",
+    fontSize: "0.7rem",
     fontWeight: 500,
-    fontFamily: "var(--font-display)",
-    color: "var(--accent-dark)",
-    background: "var(--accent-soft)",
+    color: "var(--text-secondary)",
+    background: "var(--bg-elevated)",
     borderRadius: "999px",
-    border: "1px solid rgba(0, 102, 255, 0.15)",
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.025em",
+    letterSpacing: "0.03em",
   },
   description: {
     fontSize: "0.95rem",
@@ -122,34 +105,33 @@ const styles = {
     gap: "1rem",
     paddingTop: "1rem",
     borderTop: "1px solid var(--border-subtle)",
+    flexWrap: "wrap" as const,
   },
   techStack: {
     display: "flex",
-    gap: "0.5rem",
+    gap: "0.4rem",
     flexWrap: "wrap" as const,
     flex: 1,
   },
   tech: {
-    fontSize: "0.8rem",
+    fontSize: "0.72rem",
     fontFamily: "var(--font-mono)",
     color: "var(--text-tertiary)",
-    background: "var(--bg-elevated)",
-    padding: "0.25rem 0.5rem",
+    background: "transparent",
+    padding: "0.2rem 0.45rem",
     borderRadius: "var(--radius-sm)",
+    border: "1px solid var(--border-subtle)",
   },
   link: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "0.375rem",
-    fontSize: "0.9rem",
+    gap: "0.4rem",
+    fontSize: "0.85rem",
     fontWeight: 600,
-    fontFamily: "var(--font-display)",
-    color: "var(--accent-primary)",
+    color: "var(--text-primary)",
     textDecoration: "none",
-    transition: "gap 0.2s ease",
+    borderBottom: "1px solid var(--text-primary)",
+    paddingBottom: "1px",
   } as React.CSSProperties,
-  arrow: {
-    transition: "transform 0.2s ease",
-    display: "inline-block",
-  },
+  arrow: { display: "inline-block", transition: "transform 0.2s ease" } as React.CSSProperties,
 };
