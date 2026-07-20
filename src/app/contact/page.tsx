@@ -26,16 +26,16 @@ export default function ContactPage() {
             📧 Email:{" "}
             <a href="mailto:amywanjala@gmail.com">amywanjala@gmail.com</a>
           </li>
-          {/* <li>
+          <li>
             💼 LinkedIn:{" "}
             <a
-              href="https://www.linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/amy-wanjala"
               target="_blank"
               rel="noopener noreferrer"
             >
-              linkedin.com/in/yourprofile
+              linkedin.com/in/amy-wanjala
             </a>
-          </li> */}
+          </li> 
           <li>
             🧑‍💻 GitHub:{" "}
             <a

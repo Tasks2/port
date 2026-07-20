@@ -36,7 +36,7 @@ export default function Footer() {
                 GitHub
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/amy-wanjala" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={styles.link}
