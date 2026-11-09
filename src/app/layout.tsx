@@ -1,15 +1,21 @@
+import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { siteConfig } from "@/config/site";
 
-export const metadata = {
-  title: "Amy Wanjala | Software Engineer • Junior Security Analyst",
-  description: "Software engineer specializing in data-driven fintech solutions and machine learning applications. Building elegant interfaces for complex business problems.",
-  keywords: ["Software Engineer", "Fintech", "Data Science", "Machine Learning", "React", "Next.js"],
-  authors: [{ name: "Amy Wanjala" }],
+export const metadata: Metadata = {
+  title: {
+    default: `${siteConfig.name} | ${siteConfig.roleLine}`,
+    // Child pages that export a `title` get it slotted into %s.
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name }],
   openGraph: {
-    title: "Amy Wanjala | Software Engineer ",
-    description: "Software engineer specializing in data-driven fintech solutions and machine learning applications.",
+    title: `${siteConfig.name} | ${siteConfig.role}`,
+    description: siteConfig.description,
     type: "website",
   },
 };

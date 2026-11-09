@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { navLinks, siteConfig } from "@/config/site";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -22,18 +23,23 @@ export default function Navbar() {
     <nav style={styles.nav}>
       <div style={styles.container}>
         <Link href="/" style={styles.logo}>
-          <span style={styles.logoInitial}>AW</span>
+          <span style={styles.logoInitial}>{siteConfig.initials}</span>
           <span style={styles.logoText}>
-            Amy Wanjala <span style={styles.logoDot}>·</span>{" "}
-            <span style={styles.logoRole}>Software Engineer</span>
+            {siteConfig.name} <span style={styles.logoDot}>·</span>{" "}
+            <span style={styles.logoRole}>{siteConfig.role}</span>
           </span>
         </Link>
 
         <div style={styles.links}>
-          <Link href="/projects" style={linkStyle(isActive("/projects"))}>Projects</Link>
-          <Link href="/skills" style={linkStyle(isActive("/skills"))}>Skills</Link>
-          <Link href="/about" style={linkStyle(isActive("/about"))}>About</Link>
-          <Link href="/contact" style={styles.contactButton}>Contact</Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              style={link.cta ? styles.contactButton : linkStyle(isActive(link.href))}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

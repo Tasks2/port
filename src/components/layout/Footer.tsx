@@ -1,5 +1,5 @@
-
 import Link from "next/link";
+import { contactLinks, externalLinkProps, navLinks, siteConfig } from "@/config/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,53 +9,37 @@ export default function Footer() {
       <div style={styles.container}>
         <div style={styles.top}>
           <div style={styles.brand}>
-            <div style={styles.logoInitial}>AW</div>
+            <div style={styles.logoInitial}>{siteConfig.initials}</div>
             <div>
-              <h3 style={styles.brandName}>Amy Wanjala</h3>
-              <p style={styles.tagline}>Software Engineer • Junior Security Analyst</p>
+              <h3 style={styles.brandName}>{siteConfig.name}</h3>
+              <p style={styles.tagline}>{siteConfig.roleLine}</p>
             </div>
           </div>
 
           <div style={styles.links}>
             <div style={styles.linkGroup}>
               <h4 style={styles.linkGroupTitle}>Navigate</h4>
-              <Link href="/projects" style={styles.link}>Projects</Link>
-              <Link href="/skills" style={styles.link}>Skills</Link>
-              <Link href="/about" style={styles.link}>About</Link>
-              <Link href="/contact" style={styles.link}>Contact</Link>
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} style={styles.link}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
 
             <div style={styles.linkGroup}>
               <h4 style={styles.linkGroupTitle}>Connect</h4>
-              <a 
-                href="https://github.com/Tasks2" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={styles.link}
-              >
-                GitHub
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/amy-wanjala" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={styles.link}
-              >
-                LinkedIn
-              </a>
-              <a 
-                href="mailto:amywanjala@gmail.com"
-                style={styles.link}
-              >
-                Email
-              </a>
+              {contactLinks.map((link) => (
+                <a key={link.href} href={link.href} {...externalLinkProps(link)} style={styles.link}>
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
         <div style={styles.bottom}>
           <p style={styles.copyright}>
-            © {currentYear} Amy Wanjala. All rights reserved.
+            © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <p style={styles.built}>
             Built with Next.js • React • TypeScript

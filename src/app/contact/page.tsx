@@ -1,3 +1,5 @@
+import { contactLinks, externalLinkProps } from "@/config/site";
+
 export default function ContactPage() {
   return (
     <main style={styles.container}>
@@ -22,30 +24,14 @@ export default function ContactPage() {
        <section style={styles.section}>
         <h2>Get in Touch</h2>
         <ul style={styles.list}>
-          <li>
-            📧 Email:{" "}
-            <a href="mailto:amywanjala@gmail.com">amywanjala@gmail.com</a>
-          </li>
-          <li>
-            💼 LinkedIn:{" "}
-            <a
-              href="https://www.linkedin.com/in/amy-wanjala"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              linkedin.com/in/amy-wanjala
-            </a>
-          </li> 
-          <li>
-            🧑‍💻 GitHub:{" "}
-            <a
-              href="https://github.com/Tasks2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              github.com/Tasks2
-            </a>
-          </li>
+          {contactLinks.map((link) => (
+            <li key={link.href}>
+              {link.icon} {link.label}:{" "}
+              <a href={link.href} {...externalLinkProps(link)}>
+                {link.display}
+              </a>
+            </li>
+          ))}
         </ul>
       </section>
 
