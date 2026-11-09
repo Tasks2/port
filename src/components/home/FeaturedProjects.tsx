@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import { getFeaturedProjects } from "@/data/projects";
 import ProjectCard from "../projects/ProjectCard";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 export default function FeaturedProjects() {
-  const featuredProjects = projects.filter(p => p.featured);
+  const featuredProjects = getFeaturedProjects();
 
   return (
     <motion.section 
