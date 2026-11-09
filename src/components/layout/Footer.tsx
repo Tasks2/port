@@ -1,35 +1,42 @@
 import Link from "next/link";
 import { contactLinks, externalLinkProps, navLinks, siteConfig } from "@/config/site";
+import Container from "@/components/ui/Container";
+
+const linkClass = "text-sm text-ink-muted hover:text-accent";
+const groupTitleClass = "mb-1 font-sans text-sm font-semibold uppercase tracking-wider text-ink";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={styles.footer}>
-      <div style={styles.container}>
-        <div style={styles.top}>
-          <div style={styles.brand}>
-            <div style={styles.logoInitial}>{siteConfig.initials}</div>
+    <footer className="mt-auto border-t border-line bg-card">
+      <Container className="pt-16 pb-8">
+        {/* One column on phones, two from the md breakpoint up */}
+        <div className="grid gap-12 border-b border-line pb-12 md:grid-cols-2">
+          <div className="flex items-start gap-4">
+            <div className="flex size-12 shrink-0 items-center justify-center rounded-md bg-linear-to-br from-accent to-accent-dark font-display text-lg text-white">
+              {siteConfig.initials}
+            </div>
             <div>
-              <h3 style={styles.brandName}>{siteConfig.name}</h3>
-              <p style={styles.tagline}>{siteConfig.roleLine}</p>
+              <p className="mb-1 font-display text-xl text-ink">{siteConfig.name}</p>
+              <p className="mb-0 text-sm text-ink-subtle">{siteConfig.roleLine}</p>
             </div>
           </div>
 
-          <div style={styles.links}>
-            <div style={styles.linkGroup}>
-              <h4 style={styles.linkGroupTitle}>Navigate</h4>
+          <div className="grid grid-cols-2 gap-8">
+            <div className="flex flex-col gap-3">
+              <h4 className={groupTitleClass}>Navigate</h4>
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} style={styles.link}>
+                <Link key={link.href} href={link.href} className={linkClass}>
                   {link.label}
                 </Link>
               ))}
             </div>
 
-            <div style={styles.linkGroup}>
-              <h4 style={styles.linkGroupTitle}>Connect</h4>
+            <div className="flex flex-col gap-3">
+              <h4 className={groupTitleClass}>Connect</h4>
               {contactLinks.map((link) => (
-                <a key={link.href} href={link.href} {...externalLinkProps(link)} style={styles.link}>
+                <a key={link.href} href={link.href} {...externalLinkProps(link)} className={linkClass}>
                   {link.label}
                 </a>
               ))}
@@ -37,108 +44,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={styles.bottom}>
-          <p style={styles.copyright}>
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-8 text-sm text-ink-subtle">
+          <p className="mb-0 text-ink-subtle">
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
-          <p style={styles.built}>
-            Built with Next.js • React • TypeScript
-          </p>
+          <p className="mb-0 font-mono text-ink-subtle">Built with Next.js • React • TypeScript</p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
-
-const styles = {
-  footer: {
-    background: "var(--bg-card)",
-    borderTop: "1px solid var(--border-subtle)",
-    marginTop: "auto",
-  },
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "4rem 2rem 2rem",
-  },
-  top: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "3rem",
-    paddingBottom: "3rem",
-    borderBottom: "1px solid var(--border-subtle)",
-  } as React.CSSProperties,
-  brand: {
-    display: "flex",
-    gap: "1rem",
-    alignItems: "flex-start",
-  },
-  logoInitial: {
-    width: "48px",
-    height: "48px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "linear-gradient(135deg, var(--accent-primary) 0%, #0052cc 100%)",
-    color: "white",
-    borderRadius: "var(--radius-md)",
-    fontWeight: 700,
-    fontSize: "1.125rem",
-    fontFamily: "var(--font-display)",
-  },
-  brandName: {
-    fontSize: "1.25rem",
-    fontWeight: 600,
-    fontFamily: "var(--font-display)",
-    color: "var(--text-primary)",
-    marginBottom: "0.25rem",
-  },
-  tagline: {
-    fontSize: "0.875rem",
-    color: "var(--text-tertiary)",
-    fontFamily: "var(--font-display)",
-  },
-  links: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "2rem",
-  },
-  linkGroup: {
-    display: "flex",
-    flexDirection: "column" as const,
-    gap: "0.75rem",
-  },
-  linkGroupTitle: {
-    fontSize: "0.875rem",
-    fontWeight: 600,
-    fontFamily: "var(--font-display)",
-    color: "var(--text-primary)",
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.05em",
-    marginBottom: "0.25rem",
-  },
-  link: {
-    fontSize: "0.9rem",
-    color: "var(--text-secondary)",
-    textDecoration: "none",
-    transition: "color 0.2s ease",
-    fontFamily: "var(--font-body)",
-  } as React.CSSProperties,
-  bottom: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingTop: "2rem",
-    gap: "1rem",
-    flexWrap: "wrap" as const,
-  },
-  copyright: {
-    fontSize: "0.875rem",
-    color: "var(--text-tertiary)",
-  },
-  built: {
-    fontSize: "0.875rem",
-    color: "var(--text-tertiary)",
-    fontFamily: "var(--font-mono)",
-  },
-};

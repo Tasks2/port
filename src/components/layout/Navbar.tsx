@@ -1,117 +1,125 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks, siteConfig } from "@/config/site";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import { cn } from "@/lib/cn";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isActive = (path: string) => pathname === path;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
-  const linkStyle = (active: boolean): React.CSSProperties => ({
-    padding: "0.5rem 0.9rem",
-    fontSize: "0.9rem",
-    fontWeight: 500,
-    color: active ? "var(--text-primary)" : "var(--text-secondary)",
-    textDecoration: "none",
-    borderRadius: "var(--radius-sm)",
-    transition: "color 0.2s ease, background 0.2s ease",
-    background: active ? "var(--bg-elevated)" : "transparent",
-  });
+  // "/projects/impact-tracker" should still highlight "Projects".
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
+  const pageLinks = navLinks.filter((link) => !link.cta);
+  const ctaLinks = navLinks.filter((link) => link.cta);
 
   return (
-    <nav style={styles.nav}>
-      <div style={styles.container}>
-        <Link href="/" style={styles.logo}>
-          <span style={styles.logoInitial}>{siteConfig.initials}</span>
-          <span style={styles.logoText}>
-            {siteConfig.name} <span style={styles.logoDot}>·</span>{" "}
-            <span style={styles.logoRole}>{siteConfig.role}</span>
+    <nav className="sticky top-0 z-50 border-b border-line bg-paper/80 backdrop-blur-md backdrop-saturate-125">
+      <Container className="flex h-[68px] items-center justify-between">
+        <Link href="/" onClick={closeMenu} className="flex items-center gap-3 text-ink hover:text-ink">
+          <span className="flex size-[34px] items-center justify-center rounded-sm bg-inverse text-[0.8rem] font-semibold tracking-wide text-paper">
+            {siteConfig.initials}
+          </span>
+          <span className="text-[0.95rem] font-semibold">
+            {siteConfig.name}
+            {/* The role is hidden on very small screens to save space. */}
+            <span className="hidden sm:inline">
+              <span className="mx-1 text-line-strong">·</span>
+              <span className="font-display text-base font-normal italic text-ink-subtle">
+                {siteConfig.role}
+              </span>
+            </span>
           </span>
         </Link>
 
-        <div style={styles.links}>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              style={link.cta ? styles.contactButton : linkStyle(isActive(link.href))}
-            >
+        {/* Desktop links */}
+        <div className="hidden items-center gap-1 md:flex">
+          {pageLinks.map((link) => (
+            <NavItem key={link.href} href={link.href} active={isActive(link.href)}>
               {link.label}
-            </Link>
+            </NavItem>
+          ))}
+          {ctaLinks.map((link) => (
+            <Button key={link.href} href={link.href} size="sm" className="ml-2">
+              {link.label}
+            </Button>
           ))}
         </div>
-      </div>
+
+        {/* Mobile menu toggle */}
+        <button
+          type="button"
+          className="rounded-sm p-2 text-ink md:hidden"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <MenuIcon open={menuOpen} />
+        </button>
+      </Container>
+
+      {/* Mobile menu panel */}
+      {menuOpen && (
+        <div id="mobile-menu" className="border-t border-line md:hidden">
+          <Container className="flex flex-col gap-1 py-4">
+            {pageLinks.map((link) => (
+              <NavItem key={link.href} href={link.href} active={isActive(link.href)} onClick={closeMenu}>
+                {link.label}
+              </NavItem>
+            ))}
+            {ctaLinks.map((link) => (
+              <Button key={link.href} href={link.href} size="sm" onClick={closeMenu} className="mt-2 justify-center">
+                {link.label}
+              </Button>
+            ))}
+          </Container>
+        </div>
+      )}
     </nav>
   );
 }
 
-const styles = {
-  nav: {
-    position: "sticky" as const,
-    top: 0,
-    zIndex: 100,
-    background: "rgba(247, 244, 238, 0.78)",
-    backdropFilter: "blur(14px) saturate(1.2)",
-    WebkitBackdropFilter: "blur(14px) saturate(1.2)",
-    borderBottom: "1px solid var(--border-subtle)",
-  },
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "0 2rem",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "68px",
-  },
-  logo: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.75rem",
-    textDecoration: "none",
-  } as React.CSSProperties,
-  logoInitial: {
-    width: "34px",
-    height: "34px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "var(--bg-inverse)",
-    color: "#f7f4ee",
-    borderRadius: "var(--radius-sm)",
-    fontWeight: 600,
-    fontSize: "0.8rem",
-    letterSpacing: "0.02em",
-  },
-  logoText: {
-    fontWeight: 600,
-    fontSize: "0.95rem",
-    color: "var(--text-primary)",
-    letterSpacing: "-0.005em",
-  },
-  logoDot: { color: "var(--border-light)", margin: "0 0.15rem" } as React.CSSProperties,
-  logoRole: {
-    fontWeight: 400,
-    color: "var(--text-tertiary)",
-    fontStyle: "italic",
-    fontFamily: "var(--font-display)",
-    fontSize: "1rem",
-  } as React.CSSProperties,
-  links: {
-    display: "flex",
-    gap: "0.25rem",
-    alignItems: "center",
-  },
-  contactButton: {
-    padding: "0.55rem 1.1rem",
-    fontSize: "0.9rem",
-    fontWeight: 500,
-    color: "#f7f4ee",
-    background: "var(--bg-inverse)",
-    textDecoration: "none",
-    borderRadius: "var(--radius-md)",
-    marginLeft: "0.5rem",
-    transition: "opacity 0.2s ease",
-  } as React.CSSProperties,
-};
+function NavItem({
+  href,
+  active,
+  onClick,
+  children,
+}: {
+  href: string;
+  active: boolean;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      aria-current={active ? "page" : undefined}
+      className={cn(
+        "rounded-sm px-3.5 py-2 text-sm font-medium transition-colors",
+        active ? "bg-elevated text-ink" : "text-ink-muted hover:bg-elevated hover:text-ink",
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+      {open ? (
+        <path d="M6 6l12 12M18 6L6 18" />
+      ) : (
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      )}
+    </svg>
+  );
+}
