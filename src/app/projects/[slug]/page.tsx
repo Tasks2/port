@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getProjectBySlug, projects, type CaseStudySection } from "@/data/projects";
 import ProjectHeader from "@/components/projects/ProjectHeader";
 import TechStack from "@/components/projects/TechStack";
+import Section from "@/components/ui/Section";
+import BulletList from "@/components/ui/BulletList";
 
 // In Next.js 15+, `params` is a Promise and must be awaited.
 type Props = { params: Promise<{ slug: string }> };
@@ -44,7 +46,7 @@ export default async function ProjectPage({ params }: Props) {
 
   // <article>, not <main>: the root layout already provides the <main> landmark.
   return (
-    <article>
+    <article className="pt-8">
       <ProjectHeader
         title={project.title}
         description={project.shortDescription}
@@ -66,24 +68,8 @@ export default async function ProjectPage({ params }: Props) {
 
 function CaseStudyBlock({ section }: { section: CaseStudySection }) {
   return (
-    <section style={styles.section}>
-      <h2>{section.heading}</h2>
-      {section.list ? (
-        <ul>
-          {section.list.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>{section.body}</p>
-      )}
-    </section>
+    <Section title={section.heading}>
+      {section.list ? <BulletList items={section.list} /> : <p>{section.body}</p>}
+    </Section>
   );
 }
-
-const styles = {
-  section: {
-    marginTop: "2rem",
-    maxWidth: "800px",
-  },
-};

@@ -2,6 +2,13 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
+import Button from "@/components/ui/Button";
+
+const stats = [
+  { value: "5+", label: "Apps shipped" },
+  { value: "3", label: "Systems designed" },
+  { value: "Full-stack", label: "React · Node · SQL" },
+];
 
 export default function Hero() {
   return (
@@ -9,162 +16,45 @@ export default function Hero() {
       initial="hidden"
       animate="visible"
       variants={fadeInUp}
-      style={styles.hero}
+      className="max-w-[920px] pt-16 pb-20 sm:pt-24"
     >
-      <div style={styles.badge}>
-        <span style={styles.badgeDot} /> Available for graduate opportunities
+      <div className="mb-9 inline-flex items-center gap-2 rounded-full border border-line-strong bg-card px-3.5 py-1.5 text-[0.8rem] font-medium text-ink shadow-sm">
+        <span className="size-[7px] rounded-full bg-success ring-[3px] ring-success/15" />
+        Available for graduate opportunities
       </div>
 
-      <h1 style={styles.title}>
-        Software engineer building <em style={styles.italic}>useful</em>,
+      <h1 className="mb-6 text-[clamp(2.75rem,6.5vw,4.75rem)] leading-[1.05]">
+        Software engineer building <em className="text-accent">useful</em>,
         <br /> dependable products.
       </h1>
 
-      <p style={styles.subtitle}>
+      <p className="mb-12 max-w-[640px] text-lg">
         I&rsquo;m Amy, a software engineer who ships full-stack applications
         for healthcare, operations, and analytics. I care about clean architecture,
         readable code, and interfaces that stay out of the user&rsquo;s way.
       </p>
 
-      <div style={styles.stats}>
-        <div style={styles.statItem}>
-          <div style={styles.statValue}>5+</div>
-          <div style={styles.statLabel}>Apps shipped</div>
-        </div>
-        <div style={styles.divider} />
-        <div style={styles.statItem}>
-          <div style={styles.statValue}>3</div>
-          <div style={styles.statLabel}>Systems designed</div>
-        </div>
-        <div style={styles.divider} />
-        <div style={styles.statItem}>
-          <div style={styles.statValue}>Full-stack</div>
-          <div style={styles.statLabel}>React · Node · SQL</div>
-        </div>
+      <div className="mb-12 flex flex-wrap items-center gap-x-8 gap-y-6 border-t border-line pt-7">
+        {stats.map((stat, i) => (
+          <div key={stat.label} className="flex items-center gap-8">
+            {/* Vertical divider between stats, hidden on phones where they wrap */}
+            {i > 0 && <span aria-hidden className="hidden h-9 w-px bg-line-strong sm:block" />}
+            <div className="flex flex-col gap-1">
+              <span className="font-display text-[2rem] leading-none tracking-tight text-ink">{stat.value}</span>
+              <span className="text-xs font-medium uppercase tracking-widest text-ink-subtle">{stat.label}</span>
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div style={styles.cta}>
-        <a href="/projects" style={styles.primaryButton}>
-          View projects <span style={styles.arrow}>→</span>
-        </a>
-        <a href="/contact" style={styles.secondaryButton}>Get in touch</a>
+      <div className="flex flex-wrap gap-3">
+        <Button href="/projects" withArrow>
+          View projects
+        </Button>
+        <Button href="/contact" variant="secondary">
+          Get in touch
+        </Button>
       </div>
     </motion.section>
   );
 }
-
-const styles = {
-  hero: {
-    paddingTop: "6rem",
-    paddingBottom: "5rem",
-    maxWidth: "920px",
-  } as React.CSSProperties,
-  badge: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    padding: "0.4rem 0.9rem",
-    background: "var(--bg-card)",
-    color: "var(--text-primary)",
-    borderRadius: "999px",
-    fontSize: "0.8rem",
-    fontWeight: 500,
-    marginBottom: "2.25rem",
-    border: "1px solid var(--border-light)",
-    boxShadow: "var(--shadow-sm)",
-  } as React.CSSProperties,
-  badgeDot: {
-    width: 7,
-    height: 7,
-    borderRadius: "50%",
-    background: "var(--success)",
-    boxShadow: "0 0 0 3px rgba(74, 124, 89, 0.15)",
-  } as React.CSSProperties,
-  title: {
-    fontFamily: "var(--font-display)",
-    fontSize: "clamp(2.75rem, 6.5vw, 4.75rem)",
-    fontWeight: 400,
-    lineHeight: 1.05,
-    letterSpacing: "-0.025em",
-    marginBottom: "1.5rem",
-    color: "var(--text-primary)",
-  } as React.CSSProperties,
-  italic: {
-    fontStyle: "italic",
-    color: "var(--accent-primary)",
-  } as React.CSSProperties,
-  subtitle: {
-    fontSize: "1.1rem",
-    lineHeight: 1.65,
-    color: "var(--text-secondary)",
-    maxWidth: "640px",
-    marginBottom: "3rem",
-  } as React.CSSProperties,
-  stats: {
-    display: "flex",
-    gap: "2rem",
-    alignItems: "center",
-    marginBottom: "3rem",
-    flexWrap: "wrap" as const,
-    paddingTop: "1.75rem",
-    borderTop: "1px solid var(--border-subtle)",
-  },
-  statItem: {
-    display: "flex",
-    flexDirection: "column" as const,
-    gap: "0.25rem",
-  },
-  statValue: {
-    fontFamily: "var(--font-display)",
-    fontSize: "2rem",
-    fontWeight: 400,
-    color: "var(--text-primary)",
-    letterSpacing: "-0.02em",
-    lineHeight: 1,
-  },
-  statLabel: {
-    fontSize: "0.75rem",
-    color: "var(--text-tertiary)",
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.1em",
-    fontWeight: 500,
-  },
-  divider: {
-    width: "1px",
-    height: "36px",
-    background: "var(--border-light)",
-  },
-  cta: {
-    display: "flex",
-    gap: "0.75rem",
-    flexWrap: "wrap" as const,
-  },
-  primaryButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    padding: "0.9rem 1.6rem",
-    background: "var(--bg-inverse)",
-    color: "#f7f4ee",
-    borderRadius: "var(--radius-md)",
-    fontWeight: 500,
-    fontSize: "0.95rem",
-    textDecoration: "none",
-    transition: "transform 0.2s ease, background 0.2s ease",
-    border: "1px solid var(--bg-inverse)",
-  } as React.CSSProperties,
-  arrow: { display: "inline-block", transition: "transform 0.2s ease" } as React.CSSProperties,
-  secondaryButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    padding: "0.9rem 1.6rem",
-    background: "transparent",
-    color: "var(--text-primary)",
-    border: "1px solid var(--border-light)",
-    borderRadius: "var(--radius-md)",
-    fontWeight: 500,
-    fontSize: "0.95rem",
-    textDecoration: "none",
-    transition: "background 0.2s ease, border-color 0.2s ease",
-  } as React.CSSProperties,
-};

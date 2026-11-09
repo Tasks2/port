@@ -1,12 +1,10 @@
+import Section from "@/components/ui/Section";
+import { TagList } from "@/components/ui/Tag";
+
 export default function TechStack({ tech }: { tech: string[] }) {
   return (
-    <section style={{ marginTop: "2rem" }}>
-      <h2>Tech Stack</h2>
-      <ul>
-        {tech.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </section>
+    <Section title="Tech Stack">
+      <TagList labels={tech} variant="code" className="gap-2" />
+    </Section>
   );
 }

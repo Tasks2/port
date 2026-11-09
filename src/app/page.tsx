@@ -6,14 +6,11 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 import { staggerContainer } from "@/lib/animations";
 
 export default function HomePage() {
+  // A div, not <main>: the root layout already renders <main>.
   return (
-    <motion.main
-      initial="hidden"
-      animate="visible"
-      variants={staggerContainer}
-    >
+    <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
       <Hero />
       <FeaturedProjects />
-    </motion.main>
+    </motion.div>
   );
 }
