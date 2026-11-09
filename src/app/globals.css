@@ -1,34 +1,40 @@
+/* External @imports must come before Tailwind. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
 
-:root {
+/*
+ * Design tokens. Every variable in @theme becomes BOTH a CSS variable and a
+ * set of Tailwind utilities, e.g. --color-ink → text-ink, bg-ink, border-ink.
+ * This is the only place colours, fonts, radii and shadows are defined —
+ * components should never contain raw hex values.
+ */
+@theme {
   /* Warm editorial palette — paper, ink, ember */
-  --bg-main: #f7f4ee;          /* warm off-white paper */
-  --bg-card: #fffdf8;
-  --bg-elevated: #efeae0;
-  --bg-inverse: #17140f;
+  --color-paper: #f7f4ee;        /* page background */
+  --color-card: #fffdf8;         /* raised surfaces */
+  --color-elevated: #efeae0;     /* subtle fills, pills */
+  --color-inverse: #17140f;      /* dark buttons */
 
-  --text-primary: #1a1712;     /* near-black with warmth */
-  --text-secondary: #5b544a;
-  --text-tertiary: #8d857a;
+  --color-ink: #1a1712;          /* primary text */
+  --color-ink-muted: #5b544a;    /* secondary text */
+  --color-ink-subtle: #8d857a;   /* tertiary text, captions */
 
-  --border-subtle: #e6dfd1;
-  --border-light: #d6ccb8;
-  --border-strong: #1a1712;
+  --color-line: #e6dfd1;         /* subtle borders */
+  --color-line-strong: #d6ccb8;  /* visible borders */
 
-  --accent-primary: #b4441c;   /* burnt sienna */
-  --accent-dark: #8a3313;
-  --accent-soft: #f4e2d4;
-  --accent-hover: #6f2a10;
+  --color-accent: #b4441c;       /* burnt sienna */
+  --color-accent-dark: #8a3313;
+  --color-accent-hover: #6f2a10;
+  --color-accent-soft: #f4e2d4;
 
-  --success: #4a7c59;
-  --warning: #c98a1e;
+  --color-success: #4a7c59;
 
-  /* Typography */
-  --font-display: 'Instrument Serif', 'Newsreader', Georgia, serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'DM Mono', 'Courier New', monospace;
+  /* Typography. --font-sans replaces Tailwind's default body font. */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
-  /* Layout */
+  /* Shape */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -36,112 +42,70 @@
   --shadow-md: 0 6px 20px -6px rgba(26, 23, 18, 0.10), 0 2px 6px rgba(26, 23, 18, 0.04);
   --shadow-lg: 0 20px 44px -14px rgba(26, 23, 18, 0.18), 0 6px 14px rgba(26, 23, 18, 0.06);
 
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 5rem;
+  /* Layout: gives us the `max-w-site` utility */
+  --container-site: 1200px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/*
+ * Element defaults. Putting them in the `base` layer means any Tailwind
+ * utility on an element (e.g. <h2 className="text-xl">) wins over these.
+ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    line-height: 1.65;
+    /* Subtle dot grid backdrop */
+    background-image: radial-gradient(circle at 1px 1px, rgba(26, 23, 18, 0.045) 1px, transparent 0);
+    background-size: 28px 28px;
+    background-attachment: fixed;
+  }
 
-body {
-  font-family: var(--font-body);
-  background: var(--bg-main);
-  color: var(--text-primary);
-  line-height: 1.65;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-normal text-ink;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
 
-  /* Subtle grid backdrop — barely visible, adds texture */
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(26, 23, 18, 0.045) 1px, transparent 0);
-  background-size: 28px 28px;
-  background-attachment: fixed;
-}
+  /* Instrument Serif only ships at weight 400, so headings in it stay
+     font-normal. Asking for bold makes the browser fake it. */
+  h1 {
+    @apply mb-4 text-[clamp(2.75rem,6vw,4.5rem)];
+    letter-spacing: -0.025em;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.015em;
-  color: var(--text-primary);
-}
+  h2 {
+    @apply mb-6 text-[clamp(2rem,3.5vw,2.75rem)];
+  }
 
-h1 {
-  font-size: clamp(2.75rem, 6vw, 4.5rem);
-  margin-bottom: var(--space-md);
-  letter-spacing: -0.025em;
-}
+  h3 {
+    @apply mb-3 font-sans text-xl font-semibold;
+    letter-spacing: -0.01em;
+  }
 
-h2 {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  margin-bottom: var(--space-lg);
-}
+  p {
+    @apply mb-4 max-w-[65ch] text-ink-muted;
+  }
 
-h3 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  margin-bottom: var(--space-sm);
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
+  a {
+    @apply text-accent transition-colors hover:text-accent-hover;
+  }
 
-p {
-  color: var(--text-secondary);
-  max-width: 65ch;
-  margin-bottom: var(--space-md);
-  font-size: 1rem;
-}
+  a:focus-visible,
+  button:focus-visible {
+    @apply rounded-xs outline-2 outline-offset-4 outline-accent;
+  }
 
-a {
-  color: var(--accent-primary);
-  text-decoration: none;
-  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  code {
+    @apply rounded-sm bg-elevated px-[0.4em] py-[0.15em] font-mono text-[0.85em] text-ink;
+  }
 
-a:hover { color: var(--accent-hover); }
-
-a:focus-visible {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 4px;
-  border-radius: 2px;
-}
-
-.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-xl); }
-.section { padding: var(--space-3xl) 0; }
-
-code {
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-  background: var(--bg-elevated);
-  padding: 0.15em 0.4em;
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-}
-
-::selection { background: var(--accent-primary); color: #fffdf8; }
-
-/* Utility: label / eyebrow */
-.eyebrow {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent-primary);
+  ::selection {
+    @apply bg-accent text-card;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
