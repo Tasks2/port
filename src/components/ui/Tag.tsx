@@ -1,18 +1,39 @@
-export default function Tag({ label }: { label: string }) {
-  return (
-    <span style={styles.tag}>
-      {label}
-    </span>
-  );
+import { cn } from "@/lib/cn";
+
+const variants = {
+  /** Rounded label for categories, e.g. "Healthcare". */
+  pill: "rounded-full bg-elevated px-2.5 py-0.5 text-xs font-medium tracking-wide text-ink-muted",
+  /** Outlined monospace badge for technologies, e.g. "Next.js". */
+  code: "rounded-sm border border-line px-2 py-0.5 font-mono text-xs text-ink-subtle",
+};
+
+export default function Tag({
+  label,
+  variant = "pill",
+  className,
+}: {
+  label: string;
+  variant?: keyof typeof variants;
+  className?: string;
+}) {
+  return <span className={cn("inline-block", variants[variant], className)}>{label}</span>;
 }
 
-const styles = {
-  tag: {
-    background: "var(--accent-soft)",
-    color: "var(--accent)",
-    padding: "0.3rem 0.7rem",
-    borderRadius: "999px",
-    fontSize: "0.75rem",
-    fontWeight: 500,
-  },
-};
+/** A wrapping row of tags. */
+export function TagList({
+  labels,
+  variant,
+  className,
+}: {
+  labels: string[];
+  variant?: keyof typeof variants;
+  className?: string;
+}) {
+  return (
+    <div className={cn("flex flex-wrap gap-1.5", className)}>
+      {labels.map((label) => (
+        <Tag key={label} label={label} variant={variant} />
+      ))}
+    </div>
+  );
+}
