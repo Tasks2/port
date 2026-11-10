@@ -1,8 +1,6 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Fragment } from "react";
-import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
@@ -39,19 +37,17 @@ const principles = [
   ["Accessible design", "that works for all users"],
 ];
 
+// Possible now that this is a server component.
+export const metadata: Metadata = { title: "About" };
+
 export default function AboutPage() {
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={staggerContainer}
-      className="mx-auto max-w-[850px] pt-12"
-    >
-      <motion.div variants={fadeInUp}>
+    <RevealGroup className="mx-auto max-w-[850px] pt-12">
+      <Reveal>
         <SectionHeader eyebrow="About" title="Building Software That Solves Real Problems" />
-      </motion.div>
+      </Reveal>
 
-      <motion.div variants={fadeInUp}>
+      <Reveal>
         <p className="text-xl leading-relaxed text-ink">
           I’m a software engineer passionate about building applications that transform
           complex processes into intuitive digital experiences.
@@ -66,9 +62,9 @@ export default function AboutPage() {
           I approach software development with a focus on reliability, scalability,
           and long-term maintainability.
         </p>
-      </motion.div>
+      </Reveal>
 
-      <motion.div variants={fadeInUp}>
+      <Reveal>
         <Section title="What I Work On" className="max-w-none">
           <div className="grid gap-6 sm:grid-cols-2">
             {focusAreas.map((area) => (
@@ -80,9 +76,9 @@ export default function AboutPage() {
             ))}
           </div>
         </Section>
-      </motion.div>
+      </Reveal>
 
-      <motion.div variants={fadeInUp}>
+      <Reveal>
         <Section title="Data & Reporting">
           <p className="text-[1.05rem] leading-relaxed">
             Creating dashboards and reporting tools that transform raw data into actionable insights.
@@ -96,9 +92,9 @@ export default function AboutPage() {
             ))}
           />
         </Section>
-      </motion.div>
+      </Reveal>
 
-      <motion.div variants={fadeInUp}>
+      <Reveal>
         <Section title="Career Direction">
           <p className="text-[1.05rem] leading-relaxed">
             I’m currently seeking software engineering opportunities where I can contribute to building
@@ -112,10 +108,10 @@ export default function AboutPage() {
             I’m motivated by opportunities to build software that creates measurable value.
           </p>
         </Section>
-      </motion.div>
+      </Reveal>
 
-      <motion.section
-        variants={fadeInUp}
+      <Reveal
+        as="section"
         className="mt-20 flex flex-wrap items-center justify-between gap-8 rounded-lg border border-accent/20 bg-linear-to-br from-accent-soft to-card p-10"
       >
         <div className="flex-1">
@@ -127,7 +123,7 @@ export default function AboutPage() {
         <Button href="/contact" variant="accent" withArrow>
           Get In Touch
         </Button>
-      </motion.section>
-    </motion.div>
+      </Reveal>
+    </RevealGroup>
   );
 }

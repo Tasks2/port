@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
+import MotionProvider from "@/components/motion/MotionProvider";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -29,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">
-        <Navbar />
-        <main className="flex-1 pt-8 pb-16">
-          <Container>{children}</Container>
-        </main>
-        <Footer />
+        <MotionProvider>
+          <Navbar />
+          <main className="flex-1 pt-8 pb-16">
+            <Container>{children}</Container>
+          </main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
