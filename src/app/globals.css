@@ -1,6 +1,16 @@
-/* External @imports must come before Tailwind. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
+
+/*
+ * Fonts come from next/font (src/app/fonts.ts), which puts --font-inter etc.
+ * on <html>. `inline` makes Tailwind write the var() straight into each
+ * utility (font-sans → font-family: var(--font-inter), …) instead of copying
+ * the value onto :root, so it always resolves to the next/font variable.
+ */
+@theme inline {
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Courier New', monospace;
+}
 
 /*
  * Design tokens. Every variable in @theme becomes BOTH a CSS variable and a
@@ -28,11 +38,6 @@
   --color-accent-soft: #f4e2d4;
 
   --color-success: #4a7c59;
-
-  /* Typography. --font-sans replaces Tailwind's default body font. */
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
   /* Shape */
   --radius-sm: 6px;

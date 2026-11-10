@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { siteConfig } from "@/config/site";
+import { fontVariables } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontVariables}>
       <body className="flex min-h-screen flex-col">
         <MotionProvider>
           <Navbar />
